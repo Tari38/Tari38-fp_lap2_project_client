@@ -14,7 +14,7 @@
   }
   
   .navbar {
-    background-color: var(--neon-green);
+    background-image: radial-gradient(circle, #52ffaf, #62feb5, #70fdbb, #7dfbc1, #89fac6, #88f7c4, #86f5c1, #85f2bf, #76eeb5, #66eaab, #55e5a1, #41e197);
     width: 100%;
     font-family: var(--body-font);
 }
