@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- CSS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	<link href="./static/css/main.css" rel="stylesheet">
+	<link href="./static/css/auth-modal.css" rel="stylesheet">
+	<link href="./static/css/quotes.css" rel="stylesheet">
+	<link href="./static/css/nav.css" rel="stylesheet">
+	<link href="./static/css/header.css" rel="stylesheet">
+	<!-- JS -->
+	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+	<script defer src="./static/js/layout.js"></script>
+	<script defer src="./static/js/modal.js"></script>
+	<script defer src="./static/js/requests.js"></script>
+	<script defer src="./static/js/auth.js"></script>
+	<script defer src="./static/js/quotes.js"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js"></script>
+	<script defer src="./api.js"></script>
+    <title>The Ultimate Habit Tracker</title>
+  </head>
+  <body cz-shortcut-listen="true">
+	<header class="text-center">
+		<img class="habit-logo" src="./assets/logo2.png" alt="The Ultimate Habit Tracker">
+		<nav class="navbar navbar-expand-lg">
+			<div class="container-fluid">
+			  <a class="navbar-brand" href="/client/index.html">The Ultimate Habit Tracker</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+				  <li class="nav-item">
+					<a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="../client/static/pages/info.html">How it Works</a>
+				  </li>
+				  <li class="nav-item">
+					<a class="nav-link" href="../client/static/private/accountPage.html">My Account</a>
+				  </li>
+				</ul>
+			  </div>
+			</div>
+		  </nav>
+	</header>
+	<main class="container parallax">
+		<section class="quotes-section">
+			<p class="advice-number">Advice # 117</p>
+    	<!-- Quote -->
+    		<q class="quotes">It is easy to sit up and take notice, what's difficult is getting up and taking action.</q>
+	    <!-- Dice BTN -->
+    		<div class="button-section">
+
+      		<div class="dice-img"></div>
+    		</div>
+
+		</section>
+		
+		<hr>
+		
+		<section class="cta-container">
+			<!-- Button trigger modal -->
+    		<a class="button" href="./login&registration.html">Go to Register & Login</a>
+		</section>
+		<br>
+		<section>
+		<div class="flex-container d-*-flex">
+
+			<div class="row">
+			  <div class="col">
+			    <div class="img-container">
+				  <img src="https://picsum.photos/200/" alt="img 1">
+				</div>
+			  </div>
+			  <div class="col">
+			    <div class="text-container justify-content-*-center">
+			      <h4 class="text-title">Take control of your lifestyle:</h4>
+					<p class="text-body">Using our easy to use app, you can create and track you habits so that you can organise your lifestyle around you!</p>
+				</div>
+			  </div>
+			</div>
+			  			  
+			<div class="row">
+			  <div class="col">
+			    <div class="text-container">
+			      <h4 class="text-title">Track all your habits:</h4>
+					<p class="text-body">Using our easy to use app, you can create and track you habits so that you can organise your lifestyle around you!</p>
+				</div>
+			  </div>
+			  <div class="col">
+				<div class="img-container">
+				   <img src="https://picsum.photos/200" alt="img 2">
+				</div>
+			  </div>
+			</div>
+
+			<div class="row">
+			  <div class="col">
+				<div class="img-container">
+				   <img src="https://picsum.photos/200/300" alt="img 3">
+				</div>
+			  </div>
+			  <div class="col">
+			    <div class="text-container">
+					<h4 class="text-title">Keep life varied:</h4>
+					<p class="text-body">Got some bad habits? Don't think you have to give them all up.... it's ok to have some, in moderation of course!</p>
+				</div>
+			  </div>
+			</div>
+		</div>
+	</section>
+	</main>
+
+	
+	<br>
+    
+	<div class="d-flex bg-dark">
+	<footer class="footer align-self-end">
+		<p class="footer-p">Created by 'import userName from "Al-Jazari"';</p>
+	</footer>
+	</div>
+		  
+  </body>
+</html>
