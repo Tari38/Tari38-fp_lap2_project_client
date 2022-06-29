@@ -47,22 +47,22 @@
 	<main class="container parallax">
 	  <div class="flex-container d-*-flex">
 		<section class="welcome-account">
-		<div>
-			<h1>Welcome to your personal habit tracker!
+		  <div class="text-container">
+			<h1 class="text-title">Welcome to your personal habit tracker!
 			</h1>
-			<h3>A place for you to track your habits, be they good or bad. Learn to control them, and live a better life.</h3>
-		</div>
+			<h3 class="text-body">A place for you to track your habits, be they good or bad. Learn to control them, and live a better life.</h3>
+		  </div>
 		</section>
-		<hr>
-
+		
+		<section>
 		<div class="button-container">
 		<!-- Open Create Habit Modal Button -->
-			<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createHabit">
+			<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#createHabit">
 			Track new habit
 			</button>
 		</div>
 
-		<section>
+		<section class="habit-list">
 		<!-- Create Habit Modal -->
 		<div class="modal fade" id="createHabit" tabindex="-1" aria-labelledby="createHabitLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -126,7 +126,7 @@
 			</ul>
 		</section>
 	</section>
-
+</section>
 		<!-- HABIT METRIC DATA -->
 		<section>
 			<div class="accordion accordion-flush" id="metric-accordion">
