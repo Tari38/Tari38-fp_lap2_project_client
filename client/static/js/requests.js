@@ -54,37 +54,39 @@ if(logForm != null){
   logForm.addEventListener('submit', submitLogin);
 }
 
+
+
 //Post request for submitting login user data
-async function submitLogin(){
-  const token = localStorage.getItem('token');
+async function submitLogin(e){
+  e.preventDefault();
   // check if token exists and is valid
-  if(token){
-    // show user logged in and or redirect to habits
-    console.log(token);
-  }else{
-    // login and recieve new token
-    const data = Object.fromEntries(new FormData(e.target));
-    const Payload = {username: data["login-username"], password: data["login-password"]};
+  const token = localStorage.getItem('token');
+  console.log(token);
 
-    try {
-      const options = {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Payload)
-      }
-      const response = await fetch(`${url}/users`, options);
-      const data = await response.json()
-      if(response.ok){
-        console.log(data);
-        saveToken(data);
-      }else { 
-        throw console.error("Invalid request data");
-      }
+  // login and recieve new token
+  const userdata = Object.fromEntries(new FormData(e.target));
+  const Payload = {username: userdata["login-username"], password: userdata["login-password"]};
 
-    }catch{
-      throw console.error("Incorrect login details");
-    }
+
+  const options = {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(Payload)
   }
+  const response = await fetch(`${url}/login`, options);
+  const data = await response.json()
+  if(response.ok){
+    console.log(data);
+    saveToken(data);
+  }else { 
+    console.error("Invalid request data");
+  }
+
+
+  // if(token != null){
+  //   // show user logged in and or redirect to habits
+  //   console.log(token);
+  // }
 }
 
 const windowName = window.location.pathname;
