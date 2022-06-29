@@ -3,6 +3,10 @@
 //
 
 //Requires values of register form and validates password matchcase and not null username, email and password
+
+
+const API_URL = require('./url');
+
 async function registerFormValidation({username, email, password}, passwordConfirm){
     if(username && email && password){
       if(password == passwordConfirm){
@@ -12,8 +16,6 @@ async function registerFormValidation({username, email, password}, passwordConfi
         return new Error("Invalid or incorrect information"), false;
     }
 }
-
-const url = 'http://localhost:3000';
 
 const regForm = document.querySelector('#register-form');
 if(regForm != null){
@@ -31,13 +33,13 @@ async function submitRegister(e){
 
   if(registerFormValidation(payload, passwordConfirm)){
     console.log("register valid")
-    try {
+    try { 
       const options = {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
       }
-      const response = await fetch(`${url}/users`, options);
+      const response = await fetch(`${API_URL}/users`, options);
       if(!response.ok) { 
         throw console.error("Invalid request data");
       }
@@ -62,12 +64,11 @@ async function submitLogin(e){
   // check if token exists and is valid
   const token = localStorage.getItem('token');
   console.log(token);
-
+  
   // login and recieve new token
   const userdata = Object.fromEntries(new FormData(e.target));
   const Payload = {username: userdata["login-username"], password: userdata["login-password"]};
-
-
+  
   const options = {
     method: 'POST',
     headers: { "Content-Type": "application/json" },
@@ -107,7 +108,7 @@ async function getHabits(){
           headers: { "Content-Type": "application/json" },
       }
 
-      const response = await fetch(`${url}/habits/users/${user_id}`, options);
+      const response = await fetch(`${API_URL}/habits/users/${user_id}`, options);
       const data = await response.json()
       if(response.ok) { 
         populateHabitList(data);
@@ -138,7 +139,6 @@ async function createHabit(e){
     try{
       // const userId = localStorage.getItem('user_id');
       const userId = 1; //TEST DATA
-
       const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-freq']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
     
       const options = {
