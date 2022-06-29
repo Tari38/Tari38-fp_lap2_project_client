@@ -1,11 +1,8 @@
 {
   "name": "client",
   "version": "1.0.0",
-  "description": "",
+  "description": "habit tracker project",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
@@ -21,20 +18,18 @@
       "!**/coverage/**"
     ]
   },
-  "keywords": [],
-  "author": "",
+  "author": "import teamName from 'Al-Jazari';",
   "license": "ISC",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.7.0",
-    "jest": "^28.1.1",
-    "jest-environment-jsdom": "^28.1.1",
+    "jest": "^28.1.2",
+    "jest-environment-jsdom": "^28.1.2",
     "nodemon": "^2.0.18",
     "superagent": "^8.0.0",
     "supertest": "^6.2.3"
   },
   "dependencies": {
-    "@easepick/bundle": "^1.2.0",
     "@popperjs/core": "^2.11.5",
     "axios": "^0.27.2",
     "js-datepicker": "^5.18.0",
