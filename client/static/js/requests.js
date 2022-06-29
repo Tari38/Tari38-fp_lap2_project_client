@@ -56,37 +56,38 @@ if(logForm != null){
   logForm.addEventListener('submit', submitLogin);
 }
 
+
+
 //Post request for submitting login user data
-async function submitLogin(){
-  const token = localStorage.getItem('token');
+async function submitLogin(e){
+  e.preventDefault();
   // check if token exists and is valid
-  if(token){
-    // show user logged in and or redirect to habits
-    console.log(token);
-  }else{
-    // login and recieve new token
-    const data = Object.fromEntries(new FormData(e.target));
-    const Payload = {username: data["login-username"], password: data["login-password"]};
-
-    try {
-      const options = {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Payload)
-      }
-      const response = await fetch(`${API_URL}/users`, options);
-      const data = await response.json()
-      if(response.ok){
-        console.log(data);
-        saveToken(data);
-      }else { 
-        throw console.error("Invalid request data");
-      }
-
-    }catch{
-      throw console.error("Incorrect login details");
-    }
+  const token = localStorage.getItem('token');
+  console.log(token);
+  
+  // login and recieve new token
+  const userdata = Object.fromEntries(new FormData(e.target));
+  const Payload = {username: userdata["login-username"], password: userdata["login-password"]};
+  
+  const options = {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(Payload)
   }
+  const response = await fetch(`${url}/login`, options);
+  const data = await response.json()
+  if(response.ok){
+    console.log(data);
+    saveToken(data);
+  }else { 
+    console.error("Invalid request data");
+  }
+
+
+  // if(token != null){
+  //   // show user logged in and or redirect to habits
+  //   console.log(token);
+  // }
 }
 
 const windowName = window.location.pathname;
@@ -115,7 +116,7 @@ async function getHabits(){
         throw console.error("Invalid request data");
       }
     }else{
-      console.error("User is not logged in");
+      // console.error("User is not logged in");
     }
     
   }catch{
@@ -129,37 +130,44 @@ if(createHabitForm != null){
 }
 
 //Post request create new habit bound to user
-async function createHabit(){
+async function createHabit(e){
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target));
 
-  //check if user is currently logged in
-  if(currentUser()){
+  // //check if user is currently logged in and entry is valid
+  if(currentUser() && validateHabitCreation(data)){
+    try{
+      // const userId = localStorage.getItem('user_id');
+      const userId = 1; //TEST DATA
+      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-freq']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
+    
+      const options = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(Payload)
+      }
+    
+      const response = await fetch(`${url}/habits/`, options);
+      if(!response.ok) { 
+        console.error("Invalid request data");
+      }
+
+    }catch{
+      throw console.error("Request could not be complete");
+    }
 
   }else{
-    throw console.error("User is not logged in");
+    console.error("User is not logged in");
   }
-
-    try {
-      const data = Object.fromEntries(new FormData(e.target));
-      let userId = localStorage.getItem('user_id');
-      const Payload = {user_id: userId, title: data['new-habit-title'], time: data['new-habit-time'], freq: data['new-habit-freq'], comment: data['new-habit-comment']};
-
-      if(data['new-habit-title']){
-
-        
-        const options = {
-          method: 'POST',
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(Payload)
-        }
-
-        const response = await fetch(`${API_URL}/habits/`, options);
-        if(!response.ok) { 
-          throw console.error("Invalid request data");
-        }
-      }
-    }catch{
-      throw console.error("Could not complete request");
-    }
 };
        
-      
+function validateHabitCreation(data){
+  //if any value is null, validation will return false else true
+  for (const [key, value] of Object.entries(data)) {
+    console.log(value);
+    if(value == null){
+      return false;
+    }
+  }
+  return true;
+}
