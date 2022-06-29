@@ -1,4 +1,4 @@
-# fp_lap2_project
+# fp_lap2_project - Client
 
 > PROJECT DESC
 
