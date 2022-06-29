@@ -41,7 +41,7 @@
     padding: 10px;
     margin: 5px 0 10px 0;
     border: none;
-    background: rgb(255, 255, 255);
+    background: rgb(232, 233, 230);
   }
   .form-container input[type=text]:focus,
   .form-container input[type=password]:focus {
