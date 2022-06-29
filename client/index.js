@@ -1,5 +1,30 @@
-const app = require('./api.js');
+const userInput = document.querySelector("#form-input-container");
 
-const port = process.env.PORT || 3000;
+const optionsGet = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+  };
 
-app.listen(port, () => console.log(`Express just departed from port ${port}!`))
+  function sendRegForm(e) {
+    e.preventDefault();
+    const regForm = 
+        document.getElementsByClassName("formContainer")[0].childNodes[0].textContent;
+  
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      //"Accept": "application/json"
+    },
+    body: JSON.stringify({
+      id: randomId,
+      form: regForm,
+    }),
+  }};
+
+  userInput.reset();
+
+  userInput.addEventListener('submit', sendRegForm);
