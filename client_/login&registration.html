@@ -17,7 +17,6 @@
 	<script defer src="./static/js/auth.js"></script>
 	<script defer src="./static/js/modal.js"></script>
 
-
     <title>Register Form</title>
   </head>
   <body>
@@ -51,7 +50,7 @@
 		<!-- Registration form -->
 		<section class="form-container ">
 			<h1>Registration</h1>
-			<form id="register-form">
+			<form id="register-form" method="post" action="static/js/requests.js">
 				<div class="form-group row">
 				<label for="register-username" class="col-4 col-form-label">Username: </label> 
 					<div class="col-8">
@@ -82,7 +81,7 @@
 				<br>
 				<div class="form-group row">
 					<div class="offset-4 col-8">
-						<button name="submit" type="submit" class="btn btn-primary submit">Register</button>
+						<button name="submit" type="submit" class="btn btn-primary">Register</button>
 
 						<!-- Login Open Modal Button -->
 						<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#loginModal">
@@ -109,7 +108,7 @@
 
 					<!-- Login form -->
 					<section>
-						<form id="login-form" method="post">
+						<form id="login-form" method="post" action="static/js/requests.js">
 							<div class="form-group row">
 							<label for="login-username" class="col-4 col-form-label">Username</label> 
 							<div class="col-8">
