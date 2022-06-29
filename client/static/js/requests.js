@@ -33,7 +33,7 @@ async function submitRegister(e){
 
   if(registerFormValidation(payload, passwordConfirm)){
     console.log("register valid")
-    try {
+    try { 
       const options = {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
