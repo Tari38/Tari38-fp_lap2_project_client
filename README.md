@@ -1,17 +1,18 @@
-# fp_lap2_project - Client
+# Habi-TraX - Client
 
-> PROJECT DESC
+> Habi-TraX is an easy to use app that will help you to track your daily habits and do them better! (Created for Lap 2 of our futureproof course)
 
 ## Installation & Usage
 
 ### Installation
+
 * Clone or download the repo.
-* Then navigate to the `` folder.
 * Run `npm install` to install dependencies.
 
 ### Usage
-* 
+
 * Run `npm test` to run test suite.
+* Run `npm coverage` to run test coverage check.
 
 ## Changelog
 
