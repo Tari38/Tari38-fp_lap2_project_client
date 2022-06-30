@@ -136,7 +136,6 @@ if(createHabitForm != null){
 //Post request create new habit bound to user
 async function createHabit(e){
   // e.preventDefault();
-  console.log('test');
   const data = Object.fromEntries(new FormData(e.target));
 
   // check if user is currently logged in and entry is valid
@@ -150,8 +149,6 @@ async function createHabit(e){
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Payload)
       }
-
-      console.log('currentuser true and valid habit true')
     
       const response = await fetch(`${url}/habits/`, options);
       if(!response.ok) { 
