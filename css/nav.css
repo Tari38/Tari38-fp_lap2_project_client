@@ -43,7 +43,7 @@ font-family: 'Montserrat Alternates', sans-serif; */
     flex-direction: column;
     margin: auto;
 }
-.nav-link {
+.nav-link, .auth-nav-link {
     color: rgb(39, 94, 26);
     padding: 10px;
     letter-spacing: 2px;
@@ -55,6 +55,11 @@ font-family: 'Montserrat Alternates', sans-serif; */
 .nav-link:hover {
     font-weight: bolder;
     color: #000;
+}
+
+.auth-nav-link {
+    cursor: pointer;
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 991px) {
