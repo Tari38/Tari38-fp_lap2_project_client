@@ -4,6 +4,7 @@ function saveToken(data){
     localStorage.setItem('token', data.token);
     localStorage.setItem('email', payload.email);
     localStorage.setItem('username', payload.username);
+    localStorage.setItem('id', payload.id);
     location.hash = '#feed';
 }
 
