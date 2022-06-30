@@ -42,20 +42,39 @@ function populateHabitList(userHabits){
             title.innerText = `${habit.name}`;
 
             const time = document.createElement('h3')
-            time.innerText = `${habit.freq}, ${habit.time}`;
+            let freq;
+            switch (habit.frequency) {
+                case 1:
+                    freq = "Every hour";
+                    break;
+                case 2:
+                    freq = "Every day";
+                    break;
+                case 3:
+                    freq = "Every week";
+                    break;
+                default:
+                    freq = "Every day";
+                    break;
+            }
 
+            let timeSplit = habit.time.slice(0, 5);
+            time.innerText = `${freq}, ${timeSplit}`;
+
+            container.append(title, time);
+           
             const comment = document.createElement('h4')
-            comment.innerText = `${habit.comment}`;
+            if(habit.comment != undefined || habit.comment != null){
+                comment.innerText = `${habit.comment}`;
+                container.append(comment);
+            }
 
-            container.append(title, time, comment);
             listItem.append(container);
             habitList.append(listItem);
         }
     }
   }
-  
-// TEST FUNCTION INVOKING //
-populateHabitList([{name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 2", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 3", freq:"Everyday", time:"1:30pm", comment:"test comment"}]);
+
 
 // datepicker
 
