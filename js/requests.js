@@ -4,8 +4,9 @@
 
 //Requires values of register form and validates password matchcase and not null username, email and password
 
+const url = 'http://localhost:3000';
+// const API_URL = 'https://fp-lap2-habit-tracker-server.herokuapp.com/';
 
-const API_URL = require('./url');
 
 async function registerFormValidation({username, email, password}, passwordConfirm){
     if(username && email && password){
@@ -32,14 +33,13 @@ async function submitRegister(e){
   const passwordConfirm =  data['register-password-confirm'];
 
   if(registerFormValidation(payload, passwordConfirm)){
-    console.log("register valid")
     try { 
       const options = {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
       }
-      const response = await fetch(`${API_URL}/users`, options);
+      const response = await fetch(`${url}/auth/register`, options);
       if(!response.ok) { 
         throw console.error("Invalid request data");
       }
@@ -51,19 +51,19 @@ async function submitRegister(e){
   }
 }
 
-const logForm = document.querySelector('#register-form');
+const logForm = document.querySelector('#login-form');
 if(logForm != null){
   logForm.addEventListener('submit', submitLogin);
 }
-
-
 
 //Post request for submitting login user data
 async function submitLogin(e){
   e.preventDefault();
   // check if token exists and is valid
-  const token = localStorage.getItem('token');
-  console.log(token);
+  // const token = localStorage.getItem('token');
+  // if(token){
+  //   console.log('token: ', token);
+  // }
   
   // login and recieve new token
   const userdata = Object.fromEntries(new FormData(e.target));
@@ -74,7 +74,7 @@ async function submitLogin(e){
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(Payload)
   }
-  const response = await fetch(`${url}/login`, options);
+  const response = await fetch(`${url}/auth/login`, options);
   const data = await response.json()
   if(response.ok){
     console.log(data);
