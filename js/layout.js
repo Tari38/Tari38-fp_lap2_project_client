@@ -67,8 +67,15 @@ function displayHabitMetrics(data){
         }
     });
 
+    const total = pass + fail;
+
     document.querySelector("#metric-data-pass").textContent =
         `Number of habits you have accomplished: ${pass}`;
     document.querySelector("#metric-data-fail").textContent = 
         `Number of habits you negleted: ${fail}`;
+
+    const progresBar = document.querySelector("#metric-progress");
+    progresBar.textContent = `${pass}%`;
+    progresBar.ariaValueMax = total;
+    progresBar.ariaValueNow = pass;
 }
