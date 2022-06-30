@@ -71,21 +71,25 @@ async function submitLogin(e, _regLog = {}){
   }
   
   async function login(loginData){
-    // login and recieve new token
-    logout()//clear stash of invalid token
-    
-    const options = {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(loginData)
-    }
-    const response = await fetch(`${url}/auth/login`, options);
-    const data = await response.json()
-    if(response.ok){
-      saveToken(data);
-      //redirect
+    try {
+      // login and recieve new token
+      logout()//clear stash of invalid token
+      
+      const options = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginData)
+      }
+      const response = await fetch(`${url}/auth/login`, options);
+      const data = await response.json()
+      if(response.ok){
+        saveToken(data);
+        //redirect
     }else { 
       console.error("Invalid request data");
+    }
+    }catch {
+      console.error('User does not exist');
     }
   }
 }
@@ -131,17 +135,15 @@ if(createHabitForm != null){
 
 //Post request create new habit bound to user
 async function createHabit(e){
-  e.preventDefault();
+  // e.preventDefault();
   console.log('test');
   const data = Object.fromEntries(new FormData(e.target));
 
   // check if user is currently logged in and entry is valid
-  if(currentUser() && validateHabitCreation(e, data)){
-
-      
+  if(currentUser() && validateHabitCreation(e, data)){  
     try{
       const userId = localStorage.getItem('user_id');
-      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-freq']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
+      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-frequency']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
     
       const options = {
         method: 'POST',
