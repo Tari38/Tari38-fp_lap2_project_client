@@ -167,3 +167,11 @@ div > h4 {
     border-radius: 20px;
     margin-bottom: 20px;
 }
+
+.accordion-body {
+    background-color: #97f5f5;
+}
+
+#myStreakChart {
+    
+}

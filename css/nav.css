@@ -40,7 +40,7 @@ font-family: 'Montserrat Alternates', sans-serif; */
 }
 .navbar-nav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: auto;
 }
 .nav-link {

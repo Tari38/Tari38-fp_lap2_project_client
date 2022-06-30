@@ -161,21 +161,3 @@ span {
     margin: auto;
   }
 }
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-image: radial-gradient(circle, #52ffaf, #62feb5, #70fdbb, #7dfbc1, #89fac6, #88f7c4, #86f5c1, #85f2bf, #76eeb5, #66eaab, #55e5a1, #41e197);
-}
-
-.footer-p {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  color:rgb(23, 54, 16, 0.5);
-  /* text-shadow: #000 1px; */
-  padding-top: 10px;
-  font-size: 0.8rem;
-}
