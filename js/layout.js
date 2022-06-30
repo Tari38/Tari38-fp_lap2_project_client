@@ -76,6 +76,6 @@ function displayHabitMetrics(data){
 
     const progresBar = document.querySelector("#metric-progress");
     progresBar.textContent = `${pass}%`;
-    progresBar.ariaValueMax = total;
-    progresBar.ariaValueNow = pass;
+    progresBar.max = total;
+    progresBar.value = pass;
 }
