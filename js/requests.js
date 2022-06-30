@@ -73,8 +73,6 @@ async function submitLogin(e, _regLog = {}){
   async function login(loginData){
     try {
       // login and recieve new token
-      logout()//clear stash of invalid token
-      
       const options = {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
@@ -84,7 +82,9 @@ async function submitLogin(e, _regLog = {}){
       const data = await response.json()
       if(response.ok){
         saveToken(data);
+        document.querySelector('#userBtn').textContent = "Logout";
         //redirect
+        window.location.href = './private/accountPage.html';
     }else { 
       console.error("Invalid request data");
     }
