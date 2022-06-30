@@ -35,6 +35,9 @@
 					<a class="nav-link" href="./accountPage.html">My Account</a>
 				  </li>
 				</ul>
+				<div class="nav-item">
+					<a class="nav-link" onclick="toggleLoginLogoutBtn()" id="userBtn">Login</a>
+				</div>
 			  </div>
 			</div>
 		  </nav>
@@ -99,15 +102,15 @@
 							<br>
 							<div class="form-group row">
 								<label 
-								  for="new-habit-freq" 
-								  class="col-4 col-form-label">Frequency
+								  for="new-habit-frequency" 
+								  class="col-4 col-form-label">frequency
 								</label> 
 							  	<div class="col-8">
 									<select 
-									  id="new-habit-freq" name="new-habit-freq" class="custom-select" required="required">
-										<option value="1">Hourly</option>
-								  		<option value="2">Everyday</option>
-								  		<option value="3">Weekly</option>
+									  id="new-habit-frequency" name="new-habit-frequency" class="custom-select" required="required">
+										<option value="1">hourly</option>
+								  		<option value="2">everyday</option>
+								  		<option value="3">weekly</option>
 									</select>
 							    </div>
 							</div>

@@ -21,24 +21,65 @@ function populateHabitList(userHabits){
             title.innerText = `${habit.name}`;
 
             const time = document.createElement('h3')
-            time.innerText = `${habit.freq}, ${habit.time}`;
+            let freq;
+            switch (habit.frequency) {
+                case 1:
+                    freq = "Every hour";
+                    break;
+                case 2:
+                    freq = "Every day";
+                    break;
+                case 3:
+                    freq = "Every week";
+                    break;
+                default:
+                    freq = "Every day";
+                    break;
+            }
 
+            let timeSplit = habit.time.slice(0, 5);
+            time.innerText = `${freq}, ${timeSplit}`;
+
+            container.append(title, time);
+           
             const comment = document.createElement('h4')
-            comment.innerText = `${habit.comment}`;
+            if(habit.comment != undefined || habit.comment != null){
+                comment.innerText = `${habit.comment}`;
+                container.append(comment);
+            }
 
-            container.append(title, time, comment);
             listItem.append(container);
             habitList.append(listItem);
         }
     }
   }
+
+// datepicker
+
+// const picker = datepicker('#dateselect', {
+//     // Event callbacks.
+//     onSelect: instance => {
+//       // Show which date was selected.
+//       console.log(instance.dateSelected)
+//     },
+//     onShow: instance => {
+//       console.log('Calendar showing.')
+//     },
+//     onHide: instance => {
+//       console.log('Calendar hidden.')
+//     },
+//     onMonthChange: instance => {
+//       // Show the month of the selected date.
+//       console.log(instance.currentMonthName)
+//     },
   
-// TEST FUNCTION INVOKING //
-populateHabitList([
-    {name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"}, 
-    {name: "Habit test 2", freq:"Everyday", time:"1:30pm", comment:"test comment"}, 
-    {name: "Habit test 3", freq:"Everyday", time:"1:30pm", comment:"test comment"}
-]);
+//     // Customizations.
+//     formatter: (input, date, instance) => {
+//       // This will display the date as `1/1/2019`.
+//       input.value = date.toDateString()
+//     },
+//     position: 'tr', // Top right.
+
 
 // -------------------------------------------------------------------------//
 
