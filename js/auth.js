@@ -17,3 +17,12 @@ function currentUser(){
     const username = localStorage.getItem('username')
     return username;
 }
+
+const accountUserDisplay = () => {
+    user = currentUser();
+
+    if(document.querySelector('#account-displayName') != null){
+        document.querySelector('#account-displayName').textContent = `Welcome ${user}, to your personal habit tracker!`;
+    }
+}
+accountUserDisplay();
