@@ -39,8 +39,8 @@ font-family: 'Montserrat Alternates', sans-serif; */
     transition: 1s ease;
 }
 .navbar-nav {
-    position: relative;
-    align-content: flex-end;
+    display: flex;
+    flex-direction: row;
     margin: auto;
 }
 .nav-link {

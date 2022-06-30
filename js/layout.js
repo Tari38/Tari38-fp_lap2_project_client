@@ -34,7 +34,11 @@ function populateHabitList(userHabits){
   }
   
 // TEST FUNCTION INVOKING //
-populateHabitList([{name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 2", freq:"Everyday", time:"1:30pm", comment:"test comment"}, {name: "Habit test 3", freq:"Everyday", time:"1:30pm", comment:"test comment"}]);
+populateHabitList([
+    {name: "Habit test 1", freq:"Everyday", time:"1:30pm", comment:"test comment"}, 
+    {name: "Habit test 2", freq:"Everyday", time:"1:30pm", comment:"test comment"}, 
+    {name: "Habit test 3", freq:"Everyday", time:"1:30pm", comment:"test comment"}
+]);
 
 // -------------------------------------------------------------------------//
 

@@ -85,4 +85,15 @@ font-family: 'Montserrat Alternates', sans-serif; */
     color: rgb(42, 119, 119);
   }
 
+  #loginModal > div {
+    border:#3ec284 3px dotted;
+    border-radius: 10px;
+    color: rgb(42, 119, 119);
+    font-weight: bold;
+    letter-spacing: 1.5px;
+   }
+   #login-form > #login {
+      background-color: #f9ffa1;
+    }
+  
   
