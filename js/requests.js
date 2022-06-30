@@ -5,7 +5,7 @@
 //Requires values of register form and validates password matchcase and not null username, email and password
 
 // const url = 'http://localhost:3000';
-const url = 'https://fp-lap2-habit-tracker-server.herokuapp.com/';
+const url = 'https://fp-lap2-habit-tracker-server.herokuapp.com';
 
 
 async function registerFormValidation({username, email, password}, passwordConfirm){
@@ -178,37 +178,3 @@ function validateHabitCreation(e, data){
   }
   return true;
 }
-
-
-// line chart metrics
-
-let myStreakChart = new Chart("myStreakChart", {
-  type: "line",
-  data: {},
-  options: {}
-});
-
-var xValues = [100,200,300,400,500,600,700,800,900,1000];
-
-new Chart("myStreakChart", {
-  type: "line",
-  data: {
-    labels: xValues,
-    datasets: [{
-      data: [860,1140,1060,1060,1070,1110,1330,2210,7830,2478],
-      borderColor: "red",
-      fill: false
-    },{
-      data: [1600,1700,1700,1900,2000,2700,4000,5000,6000,7000],
-      borderColor: "green",
-      fill: false
-    },{
-      data: [300,700,2000,5000,6000,4000,2000,1000,200,100],
-      borderColor: "blue",
-      fill: false
-    }]
-  },
-  options: {
-    legend: {display: false}
-  }
-});
