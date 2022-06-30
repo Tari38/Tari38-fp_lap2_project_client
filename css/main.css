@@ -1,10 +1,12 @@
 /*
  * ─── IMPORTS ────────────────────────────────────────────────────────────────────
  */
- @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+ @import url('https://fonts.googleapis.com/css2?family=Arima:wght@500&family=Cormorant+Upright&family=Manrope&family=Montserrat+Alternates&display=swap');
 
-
-
+ /* font-family: 'Arima', cursive;
+font-family: 'Cormorant Upright', serif;
+font-family: 'Manrope', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif; */
 
 /*
  * ─── GLOBALS ────────────────────────────────────────────────────────────────────
@@ -22,9 +24,7 @@
   --dark-grayish-blue: #202733;
   /* var (--white) */
   --white: white;
-  /* var (--body-font) */
-  --body-font: "Manrope", sans-serif;
-}
+ }
 
 * {
   margin: 0;
@@ -36,18 +36,15 @@ body, html {
     width: 100%;
     margin: 0;
     padding: 0;
-    font-family: var(--body-font);
-    color: #fff;
+    font-family: 'Manrope', sans-serif;
 }
 
 .parallax {
     /* The image used */
     background-image: url("../assets/bg-img.jpg");
-  
-    /* Full height */
+     /* Full height */
     height: 100%;
-  
-    /* Create the parallax scrolling effect */
+     /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -83,22 +80,24 @@ main {
   width: 100%;
 }
 
-.button {
+.cta-btn {
   margin: auto;
   padding: 10px;
   border-radius: 10px;  
   border: 3px solid rgb(64, 141, 45);
-  color:rgb(38, 112, 19);
+  color:rgb(26, 75, 14);
+  font-family: 'Manrope', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   text-decoration: none;
   transition: all ease-in-out 0.3s;
-  background-color: #3ec284;
-  
+  background-color: #f9ffa1;
 }
 
-.button:hover {
-  background-color: hsl(150, 100%, 66%);
-  box-shadow: -1px 1px 18px 12px rgb(31, 207, 207);
+.cta-btn:hover {
+  background-color: var(--neon-green);
+  box-shadow: -1px 1px 84px 12px #f9ffa1;
   transform: scale(1.1);
   transition: all ease-in-out 0.3s;
   color: rgb(42, 119, 119);
@@ -123,23 +122,26 @@ main {
 }
 
 .text-title {
-  color: hsl(150, 100%, 66%);
+  color: #f9ffa1;
   padding: 10px;
   font-size: 1.8rem;
 }
 
-.text-body {
-  color: #fff !important;
+#text-body {
+  color: #fff;
   line-height: 1.5;
   padding: 20px;
   font-size: 1.5rem;
+  font-family: 'Montserrat Alternates', sans-serif;
 }
 
 span {
-  color:aqua;
+  color:rgb(44, 241, 241);
   font-size: larger;
   font-style: italic;
-  font-family: serif;
+  font-weight: bold;
+  font-family: 'Cormorant Upright', serif;
+  letter-spacing: 1.5px;
 }
 /* ──────────────────────────────────────────────────────────────────────────────── */
 @media only screen and (max-device-width: 1366px) {

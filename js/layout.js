@@ -1,27 +1,6 @@
 //
 // ─── SITE CONSTRUCTION ──────────────────────────────────────────────────────────
 //
-const publicRoutes = ['#', '#login', '#register'];
-const privateRoutes = ['#feed', '#profile'];
-
-// function updateMain(path) {
-//     main.innerHTML = '';
-//     if (path) {
-//         switch(path){
-//             case '#login':
-//                 renderLoginForm(); break;
-//             case '#register':
-//                 renderRegisterForm(); break;
-//             case '#profile':
-//                 renderProfile(); break;
-//             default:
-//                 render404(); break;
-//         }
-//     } else {
-//         return("../index.html");
-//     }
-// }
-
 
 //Creates html list items containing habit data to populate habits-list
 //expects an array of objects, each object a habbit of the current user
@@ -75,7 +54,6 @@ function populateHabitList(userHabits){
     }
   }
 
-
 // datepicker
 
 // const picker = datepicker('#dateselect', {
@@ -102,12 +80,7 @@ function populateHabitList(userHabits){
 //     },
 //     position: 'tr', // Top right.
 
-//     // Settings.
-//     alwaysShow: true, // Never hide the calendar.
-//     dateSelected: new Date(), // Today is selected.
-//     startDate: new Date(), // This month.
-//     showAllDates: true, // Numbers for leading & trailing days outside the current month will show.
-// });
+
 // -------------------------------------------------------------------------//
 
   
