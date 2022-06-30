@@ -73,8 +73,6 @@ async function submitLogin(e, _regLog = {}){
   async function login(loginData){
     try {
       // login and recieve new token
-      logout()//clear stash of invalid token
-      
       const options = {
         method: 'POST',
         headers: { "Content-Type": "application/json" },
@@ -84,7 +82,9 @@ async function submitLogin(e, _regLog = {}){
       const data = await response.json()
       if(response.ok){
         saveToken(data);
+        document.querySelector('#userBtn').textContent = "Logout";
         //redirect
+        window.location.href = './private/accountPage.html';
     }else { 
       console.error("Invalid request data");
     }
@@ -95,17 +95,18 @@ async function submitLogin(e, _regLog = {}){
 }
 
 
-const windowName = window.location.pathname;
-if(windowName == '/client/static/private/accountPage.html'){
+const habitList = document.querySelector('#habits-list');
+if(habitList != null){
   getHabits();
 }
 
 //Get request to obtain users habits
 async function getHabits(){
 
-  //check if user is currently has valid token
   try{
-    if(currentUser()){
+    //check if user is currently has valid token
+    const user = currentUser();
+    if(user != null){
 
       const user_id = localStorage.getItem('user_id');
       const options = {
@@ -113,19 +114,20 @@ async function getHabits(){
           headers: { "Content-Type": "application/json" },
       }
 
-      const response = await fetch(`${API_URL}/habits/users/${user_id}`, options);
+      const response = await fetch(`${url}/users/habits/${user_id}`, options);
       const data = await response.json()
+      console.log(data);
       if(response.ok) { 
         populateHabitList(data);
       }else{
-        throw console.error("Invalid request data");
+        console.error("Invalid response data");
       }
     }else{
       console.error("User is not logged in");
     }
     
-  }catch{
-    throw console.warn('Could not complete request');
+  }catch (err){
+    throw err;
   }
 }
 
@@ -143,7 +145,7 @@ async function createHabit(e){
   if(currentUser() && validateHabitCreation(e, data)){  
     try{
       const userId = localStorage.getItem('user_id');
-      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-frequency']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
+      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-frequency']), time: data['new-habit-time']+":00", _comment: data['new-habit-comment'], user_id: userId,};
     
       const options = {
         method: 'POST',
