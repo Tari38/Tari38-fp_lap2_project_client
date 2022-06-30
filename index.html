@@ -9,9 +9,9 @@
 	<link href="./css/quotes.css" rel="stylesheet">
 	<link href="./css/nav.css" rel="stylesheet">
 	<link href="./css/header.css" rel="stylesheet">
+	<link href="./css/footer.css" rel="stylesheet">
 	<!-- JS -->
-	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
-	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+	<script defer src="./js/auth.js"></script>
 	<script defer src="./js/layout.js"></script>
 	<script defer src="./js/quotes.js"></script>
 	<script defer src="https://cdn.jsdelivr.net/npm/jwt-decode@1.5.1/build/jwt-decode.min.js"></script>
@@ -36,8 +36,12 @@
 					<a class="nav-link" href="./private/accountPage.html">My Account</a>
 				  </li>
 				</ul>
-				<div class="nav-item">
-					<a class="nav-link" onclick="toggleLoginLogoutBtn()" id="userBtn">Login</a>
+				<div class="auth-nav">
+					<ul class="navbar-nav">
+						<li class="nav-item">
+							<a class="auth-nav-link" onclick="toggleLoginLogoutBtn()" id="userBtn">Login</a>
+						</li>
+					</ul>
 				</div>
 			  </div>
 			</div>
@@ -116,9 +120,12 @@
     
 	<div class="d-flex bg-dark">
 	<footer class="footer align-self-end">
-		<p class="footer-p">Created by 'import userName from "Al-Jazari"';</p>
+		<p class="footer-p">Created by (c) 'import userName from "Al-Jazari"'; , 2022 </p>
 	</footer>
 	</div>
-		  
+
+	<!-- Boostrap js -->
+	<script defer src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>  
   </body>
 </html>

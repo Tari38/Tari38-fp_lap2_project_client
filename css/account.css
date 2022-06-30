@@ -110,7 +110,6 @@ main {
     flex-direction: column;
     text-align: center;
     background-color: #f9ffa1;
-    opacity: 0.9;
     padding: 20px;
     margin-bottom: 20px;
     border:#3ec284 3px dotted;
@@ -151,10 +150,6 @@ div > h4 {
   font-weight: bold;
 }
 
-#create-habit-form {
-    opacity: 1;
-}
-
 /* metric section */
 
 .metric-section {
@@ -167,3 +162,8 @@ div > h4 {
     border-radius: 20px;
     margin-bottom: 20px;
 }
+
+.accordion-body {
+    background-color: #97f5f5;
+}
+
