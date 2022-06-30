@@ -1,11 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@500&family=Cormorant+Upright&family=Manrope&family=Montserrat+Alternates&display=swap');
+
+/* font-family: 'Arima', cursive;
+font-family: 'Cormorant Upright', serif;
+font-family: 'Manrope', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif; */
+
 :root {
   --light-cyan: hsl(193, 38%, 86%);
   --neon-green: hsl(150, 100%, 66%);
   --grayish-blue: #313a48;
   --dark-grayish-blue: #202733;
   --white: white;
-  --body-font: "Manrope", sans-serif;
 }
 
 * {
@@ -17,10 +22,10 @@ body {
   box-sizing: border-box;
   align-items: center;
   background-color: var(--dark-grayish-blue);
-  font-family: var(--body-font);
 }
 
 .quotes-section {
+  font-family: 'Montserrat Alternates', sans-serif;
   position: relative;
   max-width: 33.75rem;
   width: 90%;
@@ -35,20 +40,21 @@ body {
   border-radius: 10px;
   padding: 3.2rem 1.5rem;
   text-align: center;
+  letter-spacing: 1.5px;
   box-sizing: border-box;
 }
 
 .advice-number {
-  color: var(--neon-green);
+  color: aqua;
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 14px;
-  font-weight: 800;
+  font-size: 18px;
+  font-weight: bolder;
 }
 
 .quotes {
   font-size: 1.3rem;
-  color: var(--light-cyan);
+  color: azure;
   font-weight: 800;
   padding: 0 1rem;
 }
@@ -56,7 +62,7 @@ body {
 .dice-img {
   position: absolute;
   cursor: pointer;
-  background-color: var(--neon-green);
+  background-color: #f9ffa1;
   background-image: url("../../assets/icon-dice.svg");
   background-position: 50%;
   background-repeat: no-repeat;
@@ -66,7 +72,6 @@ body {
   width: 4rem;
   height: 4rem;
   transition: all ease-in-out 0.3s;
-
 }
 
 @media (hover: hover) {
@@ -75,6 +80,7 @@ body {
     -webkit-box-shadow: -1px 1px 88px 12px rgba(82, 255, 168, 1);
     -moz-box-shadow: -1px 1px 88px 12px rgba(82, 255, 168, 1);
     transition: all ease-in-out 0.3s;
+    background-color: var(--neon-green);
   }
 }
 

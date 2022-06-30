@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@500&family=Cormorant+Upright&family=Manrope&family=Montserrat+Alternates&display=swap');
+
+/* font-family: 'Arima', cursive;
+font-family: 'Cormorant Upright', serif;
+font-family: 'Manrope', sans-serif;
+font-family: 'Montserrat Alternates', sans-serif; */
+
 :root {
   --light-cyan: hsl(193, 38%, 86%);
   --neon-green: hsl(150, 100%, 66%);
@@ -21,17 +27,21 @@
     padding: 20px;
   }
   
-  .form-container {
+  .form-container {    
     max-width: 800px;
     padding: 20px;
     margin: auto;
-    background-color: #fff;
+    background-color: #202733;
+    opacity: 0.9;
     align-self: center;
+    border:#3ec284 3px dotted;
+    border-radius: 20px;
+    color:aqua;
   }
 
   .form-container h1 {
     text-align: left;
-    color: darkgreen !important;
+    color: aqua;
     margin-bottom: 25px;
   }
 
@@ -40,8 +50,8 @@
     width: 100%;
     padding: 10px;
     margin: 5px 0 10px 0;
-    border: none;
-    background: rgb(232, 233, 230);
+    border: 1px solid #ced4da;
+    background: rgb(249, 250, 246);
   }
   .form-container input[type=text]:focus,
   .form-container input[type=password]:focus {
@@ -56,17 +66,20 @@
     border-radius: 10px;  
     border: 3px solid rgb(64, 141, 45);
     color:rgb(38, 112, 19);
+    font-family: 'Manrope', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     text-decoration: none;
     transition: all ease-in-out 0.3s;
-    background-color: #3ec284;
+    background-color: #f9ffa1;
   }
   .form-container .cancel {
     background-color: #cc0000;
   }
   .form-container .btn:hover {
-    background-color: hsl(150, 100%, 66%);
-    box-shadow: -1px 1px 18px 12px rgb(31, 207, 207);
+    background-color: var(--neon-green);
+    box-shadow: -1px 1px 84px 12px #f9ffa1;
     transform: scale(1.1);
     transition: all ease-in-out 0.3s;
     color: rgb(42, 119, 119);
