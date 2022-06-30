@@ -4,8 +4,9 @@
 
 //Requires values of register form and validates password matchcase and not null username, email and password
 
+const url = 'http://localhost:3000';
+// const API_URL = 'https://fp-lap2-habit-tracker-server.herokuapp.com/';
 
-const API_URL = require('./url');
 
 async function registerFormValidation({username, email, password}, passwordConfirm){
     if(username && email && password){
@@ -32,63 +33,67 @@ async function submitRegister(e){
   const passwordConfirm =  data['register-password-confirm'];
 
   if(registerFormValidation(payload, passwordConfirm)){
-    console.log("register valid")
     try { 
       const options = {
           method: 'POST',
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
       }
-      const response = await fetch(`${API_URL}/users`, options);
-      if(!response.ok) { 
-        throw console.error("Invalid request data");
+      const response = await fetch(`${url}/auth/register`, options);
+      if(response.ok) { 
+        submitLogin(e, payload);
       }
-    } catch (err) {
-      console.warn(err);
+    }catch{
+      console.error("Invalid request data");
     }
   }else{
     throw console.error("Passwords do not match");
   }
 }
 
-const logForm = document.querySelector('#register-form');
+const logForm = document.querySelector('#login-form');
 if(logForm != null){
   logForm.addEventListener('submit', submitLogin);
 }
 
-
-
 //Post request for submitting login user data
-async function submitLogin(e){
+async function submitLogin(e, _regLog = {}){
   e.preventDefault();
-  // check if token exists and is valid
-  const token = localStorage.getItem('token');
-  console.log(token);
-  
-  // login and recieve new token
-  const userdata = Object.fromEntries(new FormData(e.target));
-  const Payload = {username: userdata["login-username"], password: userdata["login-password"]};
-  
-  const options = {
-    method: 'POST',
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(Payload)
-  }
-  const response = await fetch(`${url}/login`, options);
-  const data = await response.json()
-  if(response.ok){
-    console.log(data);
-    saveToken(data);
-  }else { 
-    console.error("Invalid request data");
-  }
 
-
-  // if(token != null){
-  //   // show user logged in and or redirect to habits
-  //   console.log(token);
-  // }
+  //if optional _regLog that is called within registration is either undefined or empty, then that is because its a manual login and data is coming from the formEntries object
+  if(_regLog["username"] == undefined || _regLog["username"] == null){
+    const userdata = Object.fromEntries(new FormData(e.target));
+    const payload = {username: userdata["login-username"], password: userdata["login-password"]};
+    login(payload);
+  }else{
+    const payload = {username: _regLog["username"], password: _regLog["password"]}
+    login(payload);
+  }
+  
+  async function login(loginData){
+    try {
+      // login and recieve new token
+      logout()//clear stash of invalid token
+      
+      const options = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(loginData)
+      }
+      const response = await fetch(`${url}/auth/login`, options);
+      const data = await response.json()
+      if(response.ok){
+        saveToken(data);
+        //redirect
+    }else { 
+      console.error("Invalid request data");
+    }
+    }catch {
+      console.error('User does not exist');
+    }
+  }
 }
+
 
 const windowName = window.location.pathname;
 if(windowName == '/client/static/private/accountPage.html'){
@@ -116,7 +121,7 @@ async function getHabits(){
         throw console.error("Invalid request data");
       }
     }else{
-      // console.error("User is not logged in");
+      console.error("User is not logged in");
     }
     
   }catch{
@@ -131,15 +136,14 @@ if(createHabitForm != null){
 
 //Post request create new habit bound to user
 async function createHabit(e){
-  e.preventDefault();
+  // e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
 
-  // //check if user is currently logged in and entry is valid
-  if(currentUser() && validateHabitCreation(data)){
+  // check if user is currently logged in and entry is valid
+  if(currentUser() && validateHabitCreation(e, data)){  
     try{
-      // const userId = localStorage.getItem('user_id');
-      const userId = 1; //TEST DATA
-      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-freq']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
+      const userId = localStorage.getItem('user_id');
+      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-frequency']), time: parseInt(data['new-habit-time']), _comment: data['new-habit-comment'], user_id: userId,};
     
       const options = {
         method: 'POST',
@@ -159,12 +163,13 @@ async function createHabit(e){
   }else{
     console.error("User is not logged in");
   }
+  return false;
 };
        
-function validateHabitCreation(data){
+function validateHabitCreation(e, data){
+  e.preventDefault();
   //if any value is null, validation will return false else true
   for (const [key, value] of Object.entries(data)) {
-    console.log(value);
     if(value == null){
       return false;
     }
