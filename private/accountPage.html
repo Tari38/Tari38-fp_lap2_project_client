@@ -19,10 +19,10 @@
 </head>
 <body>
 	<header class="text-center">
-		<img class="habit-logo" src="../assets/logo2.png" alt="The Ultimate Habit Tracker">
+		<img class="habit-logo" src="../assets/logo2.png" alt="Habit Tracker">
 		<nav class="navbar navbar-expand-lg ">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="../index.html">The Ultimate Habit Tracker</a>
+				<a class="navbar-brand" href="../index.html">Habit Tracker</a>
 			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			  </button>
@@ -32,7 +32,7 @@
 					<a class="nav-link active" aria-current="page" href="../index.html">Home</a>
 				  </li>
 				  <li class="nav-item">
-					<a class="nav-link" href="../pages/info.html">How it Works</a>
+					<a class="nav-link" href="../info.html">How it Works</a>
 				  </li>
 				  <li class="nav-item">
 					<a class="nav-link" href="./accountPage.html">My Account</a>
@@ -45,22 +45,24 @@
 
 
 	<main class="container parallax">
-	  <div class="flex-container d-*-flex">
-		<section class="welcome-account">
-		  <div class="text-container">
-			<h1 class="text-title">Welcome to your personal habit tracker!
-			</h1>
-			<h3 class="text-body">A place for you to track your habits, be they good or bad. Learn to control them, and live a better life.</h3>
-		  </div>
-		</section>
-		
-		<section>
-		<div class="button-container">
-		<!-- Open Create Habit Modal Button -->
-			<button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#createHabit">
-			Track new habit
-			</button>
-		</div>
+	    <div class="flex-container d-*-flex">
+			<section class="welcome-account">
+		  		<div class="text-container">
+					<h1 class="text-title">Welcome ${username} to your personal habit tracker!
+					</h1>
+					<h3 class="text-body">A place for you to track your habits, be they good or bad. Learn to control them, and live a better life.
+					</h3>
+		  		</div>
+				<div class="button-container">
+				<!-- Open Create Habit Modal Button -->
+					<button 
+					  type="button" 
+					  class="btn" 
+					  data-bs-toggle="modal" data-bs-target="#createHabit">
+					  Track new habit
+					</button>
+				</div>
+			</section>
 
 		<section class="habit-list">
 		<!-- Create Habit Modal -->
@@ -80,53 +82,67 @@
 							  </div>
 							</div>
 							<br>
-							<div class="form-group row">
-							  <label for="new-habit-time" class="col-4 col-form-label">time</label> 
-							  <div class="col-8">
-								<input id="new-habit-time" name="new-habit-time" type="time" min="01:00" max="24:00" class="form-control" required="required">
-								</input>
-							  </div>
-							</div>
+								<div class="form-group row">
+									<label 
+									  for="new-habit-time" 
+									  class="col-4 col-form-label">time
+									</label> 
+							    	<div class="col-8">
+										<input 
+									  	  id="new-habit-time" name="new-habit-time" type="time" min="01:00" max="24:00" class="form-control" required="required">
+										</input>
+							    	</div>
+								</div>
 							<br>
 							<div class="form-group row">
-							  <label for="new-habit-frequency" class="col-4 col-form-label">frequency</label> 
-							  <div class="col-8">
-								<select id="new-habit-frequency" name="new-habit-frequency" class="custom-select" required="required">
-								  <option value="1">hourly</option>
-								  <option value="2">everyday</option>
-								  <option value="3">weekly</option>
-								</select>
-							  </div>
+								<label 
+								  for="new-habit-freq" 
+								  class="col-4 col-form-label">frequency
+								</label> 
+							  	<div class="col-8">
+									<select 
+									  id="new-habit-freq" name="new-habit-freq" class="custom-select" required="required">
+										<option value="1">hourly</option>
+								  		<option value="2">everyday</option>
+								  		<option value="3">weekly</option>
+									</select>
+							    </div>
 							</div>
+
 							<br>
+
 							<div class="form-group row">
-							  <label for="new-habit-comment" class="col-4 col-form-label">comment</label> 
-							  <div class="col-8">
-								<input id="new-habit-comment" name="new-habit-comment" placeholder="comments on your habit" type="text" class="form-control">
-							  </div>
+								<label for="new-habit-comment" class="col-4 col-form-label">comment
+								</label> 
+								<div class="col-8">
+									<input id="new-habit-comment" name="new-habit-comment" placeholder="comments on your habit" type="text" class="form-control">
+							    </div>
 							</div> 
+
 							<hr>
 
 							<div class="form-group row">
-							  <div class="offset-4 col-8">
-								<button name="submit" type="submit" class="btn btn-primary">Track habit!</button>
-							  </div>
+							    <div class="offset-4 col-8">
+									<button 
+								  		name="submit" type="submit" 
+								  		class="btn btn-primary">Track habit!
+									</button>
+							  	</div>
 							</div>
-						</form>
+							</form>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	
-		
 		<!-- HABIT TRACKER -->
+
 		<section>
 			<ul id="habits-list">
 				
 			</ul>
 		</section>
 	</section>
-</section>
+	
 		<!-- HABIT METRIC DATA -->
 		<section>
 			<div class="accordion accordion-flush" id="metric-accordion">

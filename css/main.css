@@ -58,6 +58,11 @@ main {
     display: flexbox;
     background-color: var (--bright-green);
     transition: 1s ease-in-out;
+    padding-top: 10px;
+}
+
+.quotes-section {
+  padding-top: 10px;
 }
 
 .col {
@@ -106,6 +111,8 @@ main {
 .motivate-img {
   height: 100%;
   width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .text-container {
@@ -139,6 +146,18 @@ span {
     .parallax {
       background-attachment: scroll;
     }
+}
+
+@media only screen and (max-width: 991px) {
+  .col {
+    width: 100%;
+  }
+  .row {
+    margin: 10px;
+  }
+  .quotes-section {
+    margin: auto;
+  }
 }
 
 footer {

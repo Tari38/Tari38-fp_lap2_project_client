@@ -94,6 +94,7 @@ async function submitLogin(e, _regLog = {}){
   }
 }
 
+
 const windowName = window.location.pathname;
 if(windowName == '/client/static/private/accountPage.html'){
   getHabits();
