@@ -104,6 +104,19 @@ main {
     color: rgb(42, 119, 119);
 }
 
+.habit-list-header {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    border-radius: 10px;
+    color: rgb(39, 94, 26);
+}
+
+.habit-separator {
+    height: 5px;
+    background-color: rgb(39, 94, 26);
+}
+
 .habit-list {
     margin: auto;
     display: flex;
