@@ -16,24 +16,42 @@
   .navbar {
     background-image: radial-gradient(circle, #52ffaf, #62feb5, #70fdbb, #7dfbc1, #89fac6, #88f7c4, #86f5c1, #85f2bf, #76eeb5, #66eaab, #55e5a1, #41e197);
     width: 100%;
+    /* margin-top: 20px; */
     font-family: var(--body-font);
 }
 
 .navbar-brand {
-    color: #fff;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    color: #000;
     letter-spacing: 2px;
-    text-shadow: #000 2px 2px;
+    text-transform: uppercase;
+    padding-left: 30px;
+    transform: scale(1.3);
+    transition: 1s ease;
 }
 .navbar-nav {
+    position: relative;
+    align-content: flex-end;
     margin: auto;
 }
 .nav-link {
-    color: rgb(38, 112, 19);
+    color: rgb(39, 94, 26);
     padding: 10px;
     letter-spacing: 2px;
     margin: 0 20px;
+    font-size: 1.2rem;
 }
 
 .nav-link:hover {
-    color: #fff;
+    color: #000;
+}
+
+@media only screen and (max-width: 991px) {
+    .navbar-brand {
+        flex-direction: column;
+        transform: scale(1);
+        transition: 1s ease;
+    }
 }
