@@ -52,35 +52,23 @@ function populateHabitList(userHabits){
             habitList.append(listItem);
         }
     }
+    displayHabitMetrics(userHabits);
   }
 
-// datepicker
+function displayHabitMetrics(data){
+    let pass = 0;
+    let fail = 0;
 
-// const picker = datepicker('#dateselect', {
-//     // Event callbacks.
-//     onSelect: instance => {
-//       // Show which date was selected.
-//       console.log(instance.dateSelected)
-//     },
-//     onShow: instance => {
-//       console.log('Calendar showing.')
-//     },
-//     onHide: instance => {
-//       console.log('Calendar hidden.')
-//     },
-//     onMonthChange: instance => {
-//       // Show the month of the selected date.
-//       console.log(instance.currentMonthName)
-//     },
-  
-//     // Customizations.
-//     formatter: (input, date, instance) => {
-//       // This will display the date as `1/1/2019`.
-//       input.value = date.toDateString()
-//     },
-//     position: 'tr', // Top right.
+    data.forEach(habit => {
+        if(habit.is_complete == true){
+            pass++;
+        }else if(habit.is_complete == false){
+            fail++;
+        }
+    });
 
-
-// -------------------------------------------------------------------------//
-
-  
+    document.querySelector("#metric-data-pass").textContent =
+        `Number of habits you have accomplished: ${pass}`;
+    document.querySelector("#metric-data-fail").textContent = 
+        `Number of habits you negleted: ${fail}`;
+}
