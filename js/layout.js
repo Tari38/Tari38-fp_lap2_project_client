@@ -20,7 +20,11 @@ function populateHabitList(userHabits){
             const container = document.createElement('div');
 
             const completeBtn = document.createElement('i');
-            completeBtn.className = "fa-solid fa-check";
+            if(habit.is_complete == true){
+                completeBtn.className = "fa-solid fa-circle-check";
+            }else{
+                completeBtn.className = "fa-regular fa-circle-check";
+            }
             completeBtn.dataset.id = habit.id;
             completeBtn.addEventListener('click', ()=>{
                 const payload = [{id: completeBtn.dataset.id, is_complete: true}]
@@ -84,6 +88,9 @@ function displayHabitMetrics(data){
         `Number of habits you have accomplished: ${pass}`;
     document.querySelector("#metric-data-fail").textContent = 
         `Number of habits you negleted: ${fail}`;
+
+    document.querySelector("#metric-streak").innerText = 
+    `Current streak: ${data.habit_streak}`;
 
     const progresBar = document.querySelector("#metric-progress");
     progresBar.textContent = `${pass}%`;

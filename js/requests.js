@@ -181,18 +181,17 @@ function validateHabitCreation(e, data){
 
 //update habit as complete
 async function markHabitComplete(payload){  
-  console.log(payload);
-  // try { 
-  //   const options = {
-  //       method: 'POST',
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify(payload)
-  //   }
-  //   const response = await fetch(`${url}/habits/id`, options);
-  //   if(response.ok) { 
-  //     //refresh page
-  //   }
-  // }catch{
-  //   console.error("Invalid request data");
-  // }
+  try { 
+    const options = {
+        method: 'POST',
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+    }
+    const response = await fetch(`${url}/habits/id`, options);
+    if(response.ok) { 
+      //refresh page
+    }
+  }catch{
+    console.error("Invalid request data");
+  }
 }
