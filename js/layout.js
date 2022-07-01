@@ -2,6 +2,8 @@
 // ─── SITE CONSTRUCTION ──────────────────────────────────────────────────────────
 //
 
+
+
 //Creates html list items containing habit data to populate habits-list
 //expects an array of objects, each object a habbit of the current user
 function populateHabitList(userHabits){
@@ -16,6 +18,15 @@ function populateHabitList(userHabits){
             const listItem = document.createElement('li')
             listItem.className = 'habit';
             const container = document.createElement('div');
+
+            const completeBtn = document.createElement('i');
+            completeBtn.className = "fa-solid fa-check";
+            completeBtn.dataset.id = habit.id;
+            completeBtn.addEventListener('click', ()=>{
+                const payload = [{id: completeBtn.dataset.id, is_complete: true}]
+                markHabitComplete(payload);
+            });
+            container.append(completeBtn);
 
             const title = document.createElement('h2')
             title.innerText = `${habit.name}`;
