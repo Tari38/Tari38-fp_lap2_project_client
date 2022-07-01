@@ -9,17 +9,11 @@ font-family: 'Montserrat Alternates', sans-serif; */
  * ─── GLOBALS ────────────────────────────────────────────────────────────────────
  */
  :root {
-  /* var (--bright-green) */
   --bright-green: rgb(79, 231, 41); 
-  /* var (--light-cyan) */
   --light-cyan: hsl(193, 38%, 86%);
-  /* var (--neon-green) */
   --neon-green: hsl(150, 100%, 66%);
-  /* var (--grayish-blue) */
   --grayish-blue: #313a48;
-  /* var (--dark-grayish-blue) */
   --dark-grayish-blue: #202733;
-  /* var (--white) */
   --white: white;
  }
 
@@ -51,16 +45,16 @@ body, html {
   
 main {
     display: flexbox;
-    background-color: #202733;
+    background-color: #fff;
     transition: 1s ease-in-out;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .flex-container {
-    padding: 30px;
-    background-color: #202733;
-    color:hsl(193, 38%, 86%);
+    background-color: #fff;
+    color:#202733;
     text-align: center;
+    padding: 20px;
 }
 
 /* printer friendly */
@@ -70,28 +64,39 @@ main {
     border: 1px black solid;
     text-align: center;
     margin-top: 20px;
+    color: #202733;
+}
+
+thead {
+    color: #202733;
 }
 
 th {
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
+.habit-cell {
+    width: 80px;
+    height: 25px;
+}
+.day-cell {
+    width: 25px;
+    height: 25px;
+}
+
 .example-row {
     font-family: 'Arima', cursive;
     font-style: italic;
+    height: 25px;
 }
 
 #main-col {
-    min-width: 300px;
+    width: 80px;
 }
 
 td {
-    height: 30px;
-}
-
-tfoot {
-    height: 30px;
-    color: #000;
+    height: 25px;
+    width: 25px;
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -101,13 +106,22 @@ tfoot {
     }
     .flex-container {
         background-color: #fff;
+        padding: none;
+        margin: none;
     }
-    table, h1 {
+   
+    .table {
+        max-width: 500px;
+        /* transform: scaleX(0.7); */
+        margin: none;
+    }
+    
+    #main-col, .example-row, th {
+        font-size: 12px;
+    }
+
+    h1, p {
         color: #202733;
     }
-    table {
-        width: 90%;
-        display: flex;
-        flex-direction: column;
-    }
+    
 }
