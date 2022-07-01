@@ -4,8 +4,8 @@
 
 //Requires values of register form and validates password matchcase and not null username, email and password
 
-const url = 'http://localhost:3000';
-// const url = 'https://fp-lap2-habit-tracker-server.herokuapp.com';
+// const url = 'http://localhost:3000';
+const url = 'https://fp-lap2-habit-tracker-server.herokuapp.com';
 
 
 async function registerFormValidation({username, email, password}, passwordConfirm){
