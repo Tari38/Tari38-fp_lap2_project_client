@@ -52,7 +52,7 @@ font-family: 'Montserrat Alternates', sans-serif; */
     font-weight: bold;
 }
 
-.nav-link:hover {
+.nav-link:hover, .auth-nav-link:hover {
     font-weight: bolder;
     color: #000;
 }
