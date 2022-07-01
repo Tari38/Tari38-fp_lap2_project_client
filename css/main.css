@@ -174,8 +174,7 @@ span {
 
 .print-tracker {
   font-family: 'Cormorant Upright', serif;
-  color:rgb(26, 75, 14);
-  
+  color:rgb(26, 75, 14); 
   background-color: #f9ffa1;
   width: 100%;
   padding: 20px;
@@ -186,8 +185,12 @@ span {
   margin-bottom: 30px;
 }
 
-.print-tracker p {
+.print-tracker > #print-p {
   font-size: 26px;
+}
+
+.print-tracker > #print-span {
+  color:rgb(79, 231, 41)
 }
 
 /* ──────────────────────────────────────────────────────────────────────────────── */

@@ -27,7 +27,7 @@ font-family: 'Montserrat Alternates', sans-serif; */
 
 .navbar-brand {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin: auto;
     font-family: 'Montserrat Alternates', sans-serif;
     font-weight: bold;
@@ -70,13 +70,15 @@ font-family: 'Montserrat Alternates', sans-serif; */
     }
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
+@media only screen and (min-width: 600px) {
+  
+    .navbar-brand {
+        margin-left: 10%;
+    }
+    .auth-nav {
+        margin-right: 15%;
+    }
 }
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {...} */
 
 /* Medium devices (landscape tablets, 768px and up) */
 /* @media only screen and (min-width: 768px) {...} */

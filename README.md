@@ -4,6 +4,8 @@
 
 ## Installation & Usage
 
+* The live website can be accessed: [HERE](https://habit-tracker-project-two.netlify.app/)
+
 ### Installation
 
 * Clone or download the repo.
