@@ -1,7 +1,7 @@
 /** @jest-environment jsdom */
 const fs = require('fs');
 const path = require('path');
-const html = fs.readFileSync(path.resolve(__dirname, '../habits.html'), 'utf8');
+const html = fs.readFileSync(path.resolve(__dirname, '../private/accountPage.html'), 'utf8');
 
 describe('Display data', () => {
     beforeEach(() => {
@@ -17,6 +17,7 @@ describe('Display data', () => {
 
     describe('habit instance contents', () => {
         test('Expect habit to contain name, freq, time, and optional comment', () => {
+
             let habits = document.querySelectorAll('.habit');
             let children = [];
             habits.forEach(child => {
@@ -47,14 +48,5 @@ describe('Display Metric data', () => {
         });
     });
 
-    // describe('open metric accordion', () => {
-    //     test('accordion opens on mouse click', () => {
-    //         const btn = document.querySelector('.accordion-button collapsed');
-    //         const test = document.querySelector('.accordion-button collapsed');
-    //         btn.onclick(
-    //         );
-            
-    //     });
-    // });
 });
 

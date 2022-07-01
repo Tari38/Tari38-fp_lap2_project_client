@@ -116,7 +116,6 @@ async function getHabits(){
 
       const response = await fetch(`${url}/users/habits/${user_id}`, options);
       const data = await response.json()
-      console.log(data);
       if(response.ok) { 
         populateHabitList(data);
       }else{
