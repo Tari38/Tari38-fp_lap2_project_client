@@ -144,7 +144,7 @@ async function createHabit(e){
   if(currentUser() && validateHabitCreation(e, data)){  
     try{
       const userId = localStorage.getItem('user_id');
-      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-frequency']), time: data['new-habit-time']+":00", _comment: data['new-habit-comment'], user_id: userId,};
+      const Payload = {name: data['new-habit-title'], frequency: parseInt(data['new-habit-frequency']), time: data['new-habit-time']+":00", _comment: data['new-habit-comment'], user_id: parseInt(userId)};
     
       const options = {
         method: 'POST',
