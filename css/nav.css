@@ -66,7 +66,7 @@ font-family: 'Montserrat Alternates', sans-serif; */
     .navbar-brand {
         flex-direction: column;
         transform: scale(1);
-        transition: 1s ease;
+        transition: all 1s ease;
     }
 }
 
