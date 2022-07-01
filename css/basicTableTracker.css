@@ -69,10 +69,16 @@ main {
     background-color:#fff;
     border: 1px black solid;
     text-align: center;
+    margin-top: 20px;
 }
 
 th {
     font-family: 'Montserrat Alternates', sans-serif;
+}
+
+.example-row {
+    font-family: 'Arima', cursive;
+    font-style: italic;
 }
 
 #main-col {
@@ -81,6 +87,11 @@ th {
 
 td {
     height: 30px;
+}
+
+tfoot {
+    height: 30px;
+    color: #000;
 }
 
 /* Extra small devices (phones, 600px and down) */
