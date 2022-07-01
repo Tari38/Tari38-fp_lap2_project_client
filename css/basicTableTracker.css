@@ -63,8 +63,10 @@ main {
     text-align: center;
 }
 
+/* printer friendly */
+
 .table {
-    background-color:hsl(193, 38%, 86%);
+    background-color:#fff;
     border: 1px black solid;
     text-align: center;
 }
@@ -72,6 +74,7 @@ main {
 th {
     font-family: 'Montserrat Alternates', sans-serif;
 }
+
 #main-col {
     min-width: 300px;
 }
@@ -80,3 +83,20 @@ td {
     height: 30px;
 }
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .parallax {
+        background-image: none;
+    }
+    .flex-container {
+        background-color: #fff;
+    }
+    table, h1 {
+        color: #202733;
+    }
+    table {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+    }
+}
