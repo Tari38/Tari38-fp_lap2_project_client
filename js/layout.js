@@ -2,6 +2,8 @@
 // ─── SITE CONSTRUCTION ──────────────────────────────────────────────────────────
 //
 
+
+
 //Creates html list items containing habit data to populate habits-list
 //expects an array of objects, each object a habbit of the current user
 function populateHabitList(userHabits){
@@ -16,6 +18,19 @@ function populateHabitList(userHabits){
             const listItem = document.createElement('li')
             listItem.className = 'habit';
             const container = document.createElement('div');
+
+            const completeBtn = document.createElement('i');
+            if(habit.is_complete == true){
+                completeBtn.className = "fa-solid fa-circle-check";
+            }else{
+                completeBtn.className = "fa-regular fa-circle-check";
+            }
+            completeBtn.dataset.id = habit.id;
+            completeBtn.addEventListener('click', ()=>{
+                const payload = [{id: completeBtn.dataset.id, is_complete: true}]
+                markHabitComplete(payload);
+            });
+            container.append(completeBtn);
 
             const title = document.createElement('h2')
             title.innerText = `${habit.name}`;
@@ -73,6 +88,9 @@ function displayHabitMetrics(data){
         `Number of habits you have accomplished: ${pass}`;
     document.querySelector("#metric-data-fail").textContent = 
         `Number of habits you negleted: ${fail}`;
+
+    document.querySelector("#metric-streak").innerText = 
+    `Current streak: ${data.habit_streak}`;
 
     const progresBar = document.querySelector("#metric-progress");
     progresBar.textContent = `${pass}%`;
