@@ -1,1 +1,0 @@
-module.exports = 'https://fp-lap2-habit-tracker-server.herokuapp.com/';
