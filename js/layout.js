@@ -27,7 +27,16 @@ function populateHabitList(userHabits){
             }
             completeBtn.dataset.id = habit.id;
             completeBtn.addEventListener('click', ()=>{
-                const payload = [{id: completeBtn.dataset.id, is_complete: true}]
+                const payload = [
+                    {
+                        id: parseInt(completeBtn.dataset.id), 
+                        is_complete: true, 
+                        time: habit.time, 
+                        frequency: habit.frequency,
+                        comment: habit.comment,
+                        name: habit.name,
+                        user_id: habit.user_id
+                    }]
                 markHabitComplete(payload);
             });
             container.append(completeBtn);
@@ -87,10 +96,7 @@ function displayHabitMetrics(data){
     document.querySelector("#metric-data-pass").textContent =
         `Number of habits you have accomplished: ${pass}`;
     document.querySelector("#metric-data-fail").textContent = 
-        `Number of habits you negleted: ${fail}`;
-
-    document.querySelector("#metric-streak").innerText = 
-    `Current streak: ${data.habit_streak}`;
+        `Number of habits to complete: ${fail}`;
 
     const progresBar = document.querySelector("#metric-progress");
     progresBar.textContent = `${pass}%`;
