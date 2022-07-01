@@ -179,7 +179,6 @@ function validateHabitCreation(e, data){
   return true;
 }
 
-
 //update habit as complete
 async function markHabitComplete(payload){  
   try { 
