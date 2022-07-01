@@ -4,8 +4,8 @@
 
 //Requires values of register form and validates password matchcase and not null username, email and password
 
-// const url = 'http://localhost:3000';
-const url = 'https://fp-lap2-habit-tracker-server.herokuapp.com';
+const url = 'http://localhost:3000';
+// const url = 'https://fp-lap2-habit-tracker-server.herokuapp.com';
 
 
 async function registerFormValidation({username, email, password}, passwordConfirm){
@@ -156,6 +156,8 @@ async function createHabit(e){
       const response = await fetch(`${url}/habits/`, options);
       if(!response.ok) { 
         console.error("Invalid request data");
+      }else{
+        location.reload();
       }
 
     }catch{
@@ -183,13 +185,14 @@ function validateHabitCreation(e, data){
 async function markHabitComplete(payload){  
   try { 
     const options = {
-        method: 'POST',
+        method: 'PATCH',
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
     }
     const response = await fetch(`${url}/habits/id`, options);
     if(response.ok) { 
       //refresh page
+      location.reload();
     }
   }catch{
     console.error("Invalid request data");
